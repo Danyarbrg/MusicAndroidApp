@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="@color/backgroundColor">
+
+    <!-- Иконка приложения -->
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_launcher_foreground"
+        android:contentDescription="App Icon" />
+
+    <!-- Название приложения -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MyMusicApp"
+        android:textSize="32sp"
+        android:textColor="@color/primaryColor"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp" />
+
+    <!-- Лозунг (опционально) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ваша музыка, ваш ритм!"
+        android:textSize="18sp"
+        android:textColor="@color/textColor"
+        android:layout_marginTop="8dp" />
+
+    <!-- Контакты -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Разработчик: Я"
+        android:textSize="16sp"
+        android:textColor="@color/textColor"
+        android:layout_marginTop="16dp" />
+
+    <!-- Версия и копирайт -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Версия 1.0 | © 2025 MyMusicApp"
+        android:textSize="14sp"
+        android:textColor="@color/textColor"
+        android:layout_marginTop="8dp" />
+
+</LinearLayout>

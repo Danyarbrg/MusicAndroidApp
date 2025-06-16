@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
+    android:padding="16dp">
+
+    <!-- Artist image -->
+    <ImageView
+        android:id="@+id/artist_image"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/albumimage"
+        android:background="@drawable/rounded_image_background" />
+
+    <!-- Artist name -->
+    <TextView
+        android:id="@+id/artist_name_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/artist_image"
+        android:layout_centerHorizontal="true"
+        android:text="Валерия"
+        android:textColor="@color/textColor"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/artist_spect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/artist_name_display"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/textColor"
+        android:text="Спектакли"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp" />
+
+    <!-- Artist description 16 июня Монро 29 Пиаф и Дорогой дневник  ПРИХОДИТЕ НА ПИАФ-->
+    <TextView
+        android:id="@+id/artist_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/artist_spect"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/textColor"
+        android:text="16 июня — Монро\n29 июня — Пиаф и Дорогой дневник\nПРИХОДИТЕ НА ПИАФ"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp" />
+    <TextView
+        android:id="@+id/artist_website"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/artist_description"
+        android:layout_centerHorizontal="true"
+        android:text="https://www.instagram.com/se.ni.va"
+        android:textColor="@color/accentColor"
+        android:textSize="16sp"
+        android:autoLink="web"
+        android:layout_marginTop="16dp" />
+
+    <!-- Back button -->
+    <Button
+        android:id="@+id/button_back"
+        style="@style/RoundedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/artist_website"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/secondaryAccentColor"
+        android:text="Назад" />
+
+</RelativeLayout>

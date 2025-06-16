@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="backgroundColor">#000000</color> <!-- Black background -->
+    <color name="textColor">#FFFFFF</color> <!-- White text -->
+    <color name="accentColor">#BB86FC</color> <!-- A purple accent color -->
+    <color name="secondaryAccentColor">#A671BF</color> <!-- A teal accent color -->
+    <color name="primaryColor">#6200EE</color> <!-- Example primary color -->
+    <color name="primaryDarkColor">#3700B3</color> <!-- Example primary dark color -->
+    <color name="cardBackground">#333333</color> <!-- Example card background color -->
+</resources>
