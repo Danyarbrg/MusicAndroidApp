@@ -45,6 +45,15 @@ android {
 
 
 dependencies {
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.google.code.gson:gson:2.10.1")
+    implementation ("androidx.media3:media3-exoplayer:1.4.1")
+    implementation ("androidx.media3:media3-ui:1.4.1")
+    implementation ("androidx.media3:media3-common:1.4.1")
+    implementation("com.google.android.exoplayer:exoplayer:2.19.1")
+    implementation("com.google.android.exoplayer:exoplayer-ui:2.19.1")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("androidx.appcompat:appcompat:1.7.0") // Обновлено
     implementation("androidx.core:core-ktx:1.12.0") // Обновлено
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0") // Обновлено

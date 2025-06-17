@@ -1,44 +1,85 @@
 package com.example.mymusicapp.network
 
 import android.content.Context
-import com.android.volley.Request
-import com.android.volley.RequestQueue
-import com.android.volley.Response
-import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.Volley
+import android.util.Log
 import com.example.mymusicapp.data.Track
-import com.google.gson.Gson
-import com.example.mymusicapp.data.TracksResponse
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.GET
+import retrofit2.http.Query
 
-class JamendoApi(private val context: Context) {
-    private val queue: RequestQueue by lazy { Volley.newRequestQueue(context) }
-    private val gson = Gson()
-    private val baseUrl = "https://api.jamendo.com/v3.0/tracks/"
+interface JamendoService {
+    @GET("v3.0/tracks/")
+    fun getTracks(
+        @Query("client_id") clientId: String,
+        @Query("format") format: String = "json",
+        @Query("limit") limit: Int = 50,
+        @Query("tags") genre: String
+    ): Call<JamendoResponse>
+}
 
-    fun getTracks(onSuccess: (List<Track>) -> Unit, onError: (String) -> Unit) {
-        val url = "$baseUrl?client_id=a4f7e71a&format=jsonpretty&limit=10"
+class JamendoApi private constructor(context: Context) {
+    private val retrofit: Retrofit
+    private val service: JamendoService
+    private val TAG = "JamendoApi"
 
-        val jsonObjectRequest = JsonObjectRequest(
-            Request.Method.GET, url, null,
-            { response ->
-                val tracksResponse = gson.fromJson(response.toString(), TracksResponse::class.java)
-                onSuccess(tracksResponse.results)
-            },
-            { error ->
-                onError("Error: ${error.message}")
-            }
+    init {
+        retrofit = Retrofit.Builder()
+            .baseUrl("https://api.jamendo.com/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        service = retrofit.create(JamendoService::class.java)
+    }
+
+    fun getTracks(
+        genre: String,
+        onSuccess: (List<Track>) -> Unit,
+        onError: (String) -> Unit
+    ) {
+        Log.d(TAG, "getTracks: Запрос треков для жанра: $genre")
+        val call = service.getTracks(
+            clientId = CLIENT_ID,
+            genre = genre
         )
+        call.enqueue(object : Callback<JamendoResponse> {
+            override fun onResponse(call: Call<JamendoResponse>, response: Response<JamendoResponse>) {
+                Log.d(TAG, "onResponse: Код ответа: ${response.code()}")
+                if (response.isSuccessful) {
+                    val tracks = response.body()?.tracks ?: emptyList()
+                    Log.d(TAG, "onResponse: Получено ${tracks.size} треков: ${tracks.take(3)}")
+                    onSuccess(tracks)
+                } else {
+                    val error = "Ошибка API: ${response.code()} ${response.message()}"
+                    Log.e(TAG, "onResponse: $error")
+                    try {
+                        val errorBody = response.errorBody()?.string()
+                        Log.e(TAG, "onResponse: Тело ошибки: $errorBody")
+                    } catch (e: Exception) {
+                        Log.e(TAG, "onResponse: Не удалось прочитать тело ошибки: ${e.message}")
+                    }
+                    onError(error)
+                }
+            }
 
-        queue.add(jsonObjectRequest)
+            override fun onFailure(call: Call<JamendoResponse>, t: Throwable) {
+                val error = "Сетевая ошибка: ${t.message}"
+                Log.e(TAG, "onFailure: $error", t)
+                onError(error)
+            }
+        })
     }
 
     companion object {
+        private const val CLIENT_ID = "a4f7e71a"
         @Volatile
-        private var INSTANCE: JamendoApi? = null
+        private var instance: JamendoApi? = null
 
         fun getInstance(context: Context): JamendoApi {
-            return INSTANCE ?: synchronized(this) {
-                INSTANCE ?: JamendoApi(context).also { INSTANCE = it }
+            return instance ?: synchronized(this) {
+                instance ?: JamendoApi(context.applicationContext).also { instance = it }
             }
         }
     }

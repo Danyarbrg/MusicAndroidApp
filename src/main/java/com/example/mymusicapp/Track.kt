@@ -1,13 +1,9 @@
 package com.example.mymusicapp.data
 
-data class Track(
-    val id: Int,
-    val name: String,
-    val artist_name: String,
-    val audio: String,
-    val image: String
-)
+import com.google.gson.annotations.SerializedName
 
-data class TracksResponse(
-    val results: List<Track>
+data class Track(
+    @SerializedName("name") val name: String?,
+    @SerializedName("artist_name") val artist_name: String?,
+    @SerializedName("audio") val audio: String?
 )

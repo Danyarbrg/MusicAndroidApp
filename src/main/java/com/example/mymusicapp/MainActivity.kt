@@ -9,13 +9,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main) // экран с жанрами
+        setContentView(R.layout.activity_main)
 
         val popGenre: ImageView = findViewById(R.id.genre1_image)
         val rockGenre: ImageView = findViewById(R.id.genre2_image)
         val jazzGenre: ImageView = findViewById(R.id.genre3_image)
         val classicGenre: ImageView = findViewById(R.id.genre4_image)
 
+        // Настройка всех жанров
         popGenre.setOnClickListener {
             openMusicPlayer("Фонк")
         }

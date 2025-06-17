@@ -7,14 +7,13 @@
     android:padding="16dp"
     android:background="@color/backgroundColor">
 
-    <!-- Иконка приложения -->
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/ic_launcher_foreground"
         android:contentDescription="App Icon" />
 
-    <!-- Название приложения -->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,7 +23,7 @@
         android:textStyle="bold"
         android:layout_marginTop="16dp" />
 
-    <!-- Лозунг (опционально) -->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,7 +32,7 @@
         android:textColor="@color/textColor"
         android:layout_marginTop="8dp" />
 
-    <!-- Контакты -->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -42,7 +41,7 @@
         android:textColor="@color/textColor"
         android:layout_marginTop="16dp" />
 
-    <!-- Версия и копирайт -->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
