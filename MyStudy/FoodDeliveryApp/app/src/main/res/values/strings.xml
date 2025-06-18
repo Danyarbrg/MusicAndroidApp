@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Food Delivery App</string>
+    <string name="back">Назад</string>
+    <string name="about">О приложении</string>
+    <string name="about_text">Это приложение для доставки еды.</string>
+    <string name="cart">Корзина</string>
+    <string name="loading">Загрузка...</string>
+    <string name="error">Ошибка: %1$s</string>
+    <string name="meal_image">Изображение блюда</string>
+    <string name="add_to_cart">Добавить в корзину</string>
+    <string name="total_price">Итог: $%1$.2f</string>
+    <string name="clear_cart">Очистить корзину</string>
+</resources>
