@@ -1,37 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="24dp"
+    android:background="#F5F5F5">
 
-    <TextView
-        android:id="@+id/title_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <ListView
-        android:id="@+id/categories_list"
+    <!-- Категории еды как отдельные кнопки -->
+    <Button
+        android:id="@+id/btnBeef"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="16dp" />
+        android:layout_height="wrap_content"
+        android:text="Beef"
+        android:backgroundTint="#1E88E5"
+        android:textColor="#FFFFFF" />
 
     <Button
-        android:id="@+id/button_cart"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnPasta"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:text="@string/view_cart" />
+        android:text="Pasta"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#1E88E5"
+        android:textColor="#FFFFFF" />
 
     <Button
-        android:id="@+id/button_about"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnSeafood"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:text="@string/about" />
+        android:text="Seafood"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#1E88E5"
+        android:textColor="#FFFFFF" />
+
+    <!-- Кнопка корзины -->
+    <Button
+        android:id="@+id/btnCart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Корзина"
+        android:backgroundTint="#1E88E5"
+        android:textColor="#FFFFFF" />
+
+    <!-- Кнопка о приложении -->
+    <Button
+        android:id="@+id/btnAbout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="О приложении"
+        android:backgroundTint="#1E88E5"
+        android:textColor="#FFFFFF" />
 
 </LinearLayout>

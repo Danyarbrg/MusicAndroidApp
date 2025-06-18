@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="#F5F5F5">
 
     <ImageView
         android:id="@+id/meal_image"
@@ -16,6 +18,7 @@
         android:id="@+id/meal_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="#212121"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginTop="8dp" />
@@ -24,6 +27,7 @@
         android:id="@+id/meal_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="#424242"
         android:textSize="16sp"
         android:layout_marginTop="4dp" />
 
@@ -31,6 +35,7 @@
         android:id="@+id/meal_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="#424242"
         android:textSize="16sp"
         android:layout_marginTop="4dp" />
 
@@ -38,6 +43,7 @@
         android:id="@+id/meal_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="#424242"
         android:textSize="14sp"
         android:layout_marginTop="8dp" />
 
@@ -46,6 +52,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add_to_cart"
+        android:backgroundTint="#1E88E5"
+        android:textColor="#FFFFFF"
         android:layout_marginTop="16dp" />
 
     <Button

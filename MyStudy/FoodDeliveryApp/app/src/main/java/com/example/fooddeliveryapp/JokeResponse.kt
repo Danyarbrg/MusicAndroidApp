@@ -1,8 +1,8 @@
-package com.example.fooddeliveryapp.data
+package com.example.foodapp
 
 import com.google.gson.annotations.SerializedName
 
-data class Meal(
+data class JokeResponse(
     @SerializedName("idMeal") val id: String?,
     @SerializedName("strMeal") val name: String?,
     @SerializedName("strCategory") val category: String?,
